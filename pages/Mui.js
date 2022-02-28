@@ -10,6 +10,7 @@ import Fingerprint from '@mui/icons-material/Fingerprint';
 import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
   import LoadingButton from '@mui/lab/LoadingButton';
+  import Tooltip from '@mui/material/Tooltip';
 
   import TextField from '@mui/material/TextField';
   import Autocomplete from '@mui/material/Autocomplete';
@@ -293,10 +294,13 @@ function Mui() {
         <NavigationIcon sx={{ mr: 1 }} />
         Navigate
       </Fab>
+      <Tooltip title="Navigation Button">
+
       <Fab variant="extended" onClick={()=>  toast("Navigation Button Pressed")}  size="small" color="primary" aria-label="add">
         <NavigationIcon sx={{ mr: 1 }} />
         Extended
       </Fab>
+      </Tooltip>
       </p>
         </details>
 
