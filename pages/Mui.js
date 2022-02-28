@@ -243,7 +243,7 @@ function Mui() {
         <details>
             <summary>AutoComplete</summary>
             <p>
-            <Autocomplete
+            {/* <Autocomplete
             disablePortal
             id="combo-box-demo"
             options={top100Films}
@@ -254,9 +254,9 @@ function Mui() {
                 }}
             sx={{ width: 300 }}
             // freeSolo
-        options={top100Films.map((option) => option.label)}
+            options={top100Films.map((option) => option.label)}
             renderInput={(params) => <TextField {...params} label="Movie" />}
-            />
+            /> */}
 
             <Autocomplete
                     {...defaultProps}
