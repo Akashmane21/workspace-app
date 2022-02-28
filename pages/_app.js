@@ -1,4 +1,4 @@
-import Layout from '../comps/Layout'
+import Layout from '../Comps/Layout'
 import  '../styles/globals.scss'
 import NProgress from "nprogress";
 import Router from "next/router";
