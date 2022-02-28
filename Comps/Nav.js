@@ -6,7 +6,8 @@ import Switch from '@mui/material/Switch';
 import { useCounter } from "../Context/Context";
 import Chip from '@mui/material/Chip';
 import Avatar from '@mui/material/Avatar';
-
+import WidgetsIcon from '@mui/icons-material/Widgets';
+import IconButton from '@mui/material/IconButton';
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
@@ -67,9 +68,14 @@ export default function Nav() {
 
     <nav>
     <div className={styles.header} style={{backgroundColor:isTheme ? "#011229c9" : "white"}}>
-      <h1 style={{color:isTheme ? "white" : "black"}}>LinkData</h1>
+    <div style={{display:"flex" }}>
+    <IconButton color="primary" aria-label="add to shopping cart">
+                <WidgetsIcon />
+            </IconButton>
+      <h1 style={{color:isTheme ? "white" : "black" , paddingTop:"10px"}}>LinkData</h1>
+      </div>
       <div>
-      <Chip style={{color:isTheme ? "white" : "black"}} label="Akash Mane" avatar={<Avatar src="https://firebasestorage.googleapis.com/v0/b/reactcrud-7b0fc.appspot.com/o/Image%2Fy.png?alt=media&token=bd47121d-8a24-4b00-99dd-ed8e36ced485" />} />
+      <Chip style={{color:isTheme ? "white" : "black" , position:"relative" , left:"30px"}} label="Akash Mane" avatar={<Avatar src="https://firebasestorage.googleapis.com/v0/b/reactcrud-7b0fc.appspot.com/o/Image%2Fy.png?alt=media&token=bd47121d-8a24-4b00-99dd-ed8e36ced485" />} />
       <FormControlLabel
         onChange={ChangeTheme}
         style={{position:"relative" , left:"30px"}}
