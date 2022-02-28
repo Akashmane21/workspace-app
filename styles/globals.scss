@@ -40,3 +40,64 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
 p{
   padding: 10px 20px;
 }
+
+.block{
+  display: flex;
+ 
+
+  .right{
+    padding-top: 80px;
+
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .block{
+    .left{
+      width: 20%;
+    }
+    .right{
+      width: 80%;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .block{
+    .left{
+      display: none;
+    }
+   
+  }
+}
+
+.LeftMenu{
+ 
+    padding: 20px;
+    background-color: rgb(252, 231, 231);
+    padding-top: 80px;
+
+    height: 100vh;
+    overflow-y: scroll;
+  
+}
+
+// /* width */
+// ::-webkit-scrollbar {
+//   width: 10px;
+// }
+
+// /* Track */
+// ::-webkit-scrollbar-track {
+//   background: #bdbdbd;
+// }
+
+// /* Handle */
+// ::-webkit-scrollbar-thumb {
+//   background: #888;
+// }
+
+// /* Handle on hover */
+// ::-webkit-scrollbar-thumb:hover {
+//   background: #555;
+// }
