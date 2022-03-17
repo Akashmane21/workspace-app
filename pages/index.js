@@ -261,7 +261,7 @@ const handleChange = (event, newValue) => {
                    <div className='allflex'>
                   {All_Collection ? All_Collection.map((data , key)=>
       
-                    <div className='ALl_coll'  id={data.Name} onClick={()=>openall(data.Name)}>
+                    <div className='ALl_coll' key={key} id={data.Name} onClick={()=>openall(data.Name)}>
                     <img src={data.Image} />
                     <h1>{data.Name}</h1>
                     </div>
@@ -277,7 +277,7 @@ const handleChange = (event, newValue) => {
           <div className='allflex'>
           {All_Collection ? All_Collection.map((data , key)=>
 
-<div className='ALl_coll' id={data.Name} onClick={()=>openall(data.Name)}>
+<div className='ALl_coll' key={key} id={data.Name} onClick={()=>openall(data.Name)}>
 <img src={data.Image} />
 <h1>{data.Name}</h1>
 </div>
