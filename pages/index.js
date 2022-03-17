@@ -77,7 +77,7 @@ const [AllTodos, setAllTodos] = useState([])
 
 
 const [value, setValue] = React.useState(0);
-const [Name, setName] = useState('')
+const [Name, setName] = useState('My Workspace')
 
 const handleChange = (event, newValue) => {
   setValue(newValue);
