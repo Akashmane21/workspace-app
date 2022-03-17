@@ -122,18 +122,18 @@ export default function Nav() {
     <IconButton onClick={()=> setisMenu(!isMenu)} color="primary" aria-label="add to shopping cart">
                 <WidgetsIcon />
             </IconButton>
-      <h1 style={{color:isTheme ? "white" : "black" , paddingTop:"10px"}}>LinkData</h1>
+      <h1 style={{color:isTheme ? "white" : "black" , paddingTop:"10px"}}>WorkSpace</h1>
       </div>
       <div>
       <Chip style={{color:isTheme ? "white" : "black" , position:"relative" , left:"10px"}} label="Akash Mane" avatar={<Avatar src="https://firebasestorage.googleapis.com/v0/b/reactcrud-7b0fc.appspot.com/o/Image%2Fy.png?alt=media&token=bd47121d-8a24-4b00-99dd-ed8e36ced485" />} />
      
-       <FormControlLabel
+       {/* <FormControlLabel
                onChange={ChangeTheme}
                style={{position:"relative" , left:"30px"}}
 
         control={<IOSSwitch sx={{ m: 1 }} defaultChecked />}
         label=""
-      />
+      /> */}
       </div>
     </div>
   </nav>

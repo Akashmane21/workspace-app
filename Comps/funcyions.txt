@@ -1,0 +1,75 @@
+
+  const CreateNewCOll=()=>{
+
+    let name="Music"
+    
+    const todoref = firebase.database().ref('Linksdata/Akash/CollectionName');
+    const Collection = {
+        "Name":name,
+        "Image":"https://image.freepik.com/free-vector/note-music-logo-design_93835-645.jpg"
+    };
+    todoref.push(Collection)
+
+
+    const main = firebase.database().ref(`Linksdata/Akash/All_Coll/${name}/info`);
+    const Coll = {
+        "Name":name,
+        "Image":"https://image.freepik.com/free-vector/note-music-logo-design_93835-645.jpg"
+    };
+    main.set(Coll)
+
+
+    
+    }
+
+
+    const AddFiles=()=>{
+      let name="My Workspace"
+      const main = firebase.database().ref(`Linksdata/Akash/All_Coll/${name}/Files`);
+      const Coll = {
+          "Name":"logo",
+          "Type":"Image",
+          "Image":"https://firebasestorage.googleapis.com/v0/b/reactcrud-7b0fc.appspot.com/o/Image%2FLogio.png?alt=media&token=576ffd49-1683-4589-92a7-784e6eff471f"
+      };
+      main.push(Coll)
+
+
+    }
+
+
+    const AddLinks=()=>{
+      let name="My Workspace"
+      const main = firebase.database().ref(`Linksdata/Akash/All_Coll/${name}/Links`);
+      const Coll = {
+          "Name":"Illustration",
+          "Link":"https://www.bing.com/search?q=github+login&cvid=ac28193492384d12b29dd5f11c83d4fc&aqs=edge.0.69i59j69i57j0l3j69i60l4.6378j0j1&pglt=2083&FORM=ANNAB1&PC=U531&ntref=1",
+          "Image":"https://firebasestorage.googleapis.com/v0/b/reactcrud-7b0fc.appspot.com/o/Image%2FAlka.png?alt=media&token=f24a8d5f-8d4d-4236-b6db-32389974d49f"
+      };
+      main.push(Coll)
+
+    }
+
+
+    const AddNotes=()=>{
+      let name="My Workspace"
+      const main = firebase.database().ref(`Linksdata/Akash/All_Coll/${name}/Notes`);
+      const Coll = {
+          "Title":"Illustration",
+          "Note":"https://www.bing.com/search?q=github+login&cvid=ac28193492384d12b29dd5f11c83d4fc&aqs=edge.0.69i59j69i57j0l3j69i60l4.6378j0j1&pglt=2083&FORM=ANNAB1&PC=U531&ntref=1",
+      };
+      main.push(Coll)
+
+    }
+
+    const AddTodos=()=>{
+      let name="My Workspace"
+      let TodoNAme="Some Taskes"
+      const main = firebase.database().ref(`Linksdata/Akash/All_Coll/${name}/Todos/`);
+      const Coll = {
+          "Task":"SQL Test",
+          "Complete":"false",
+      };
+      main.push(Coll)
+
+    }
+1

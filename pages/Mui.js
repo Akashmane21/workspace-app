@@ -1,26 +1,26 @@
 import Head from 'next/head'
 import { styled } from '@mui/material/styles';
+import SendIcon from '@mui/icons-material/Send';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import DeleteIcon from '@mui/icons-material/Delete';
-import SendIcon from '@mui/icons-material/Send';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import Fingerprint from '@mui/icons-material/Fingerprint';
 import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
   import LoadingButton from '@mui/lab/LoadingButton';
-  import Tooltip from '@mui/material/Tooltip';
-
+  
   import TextField from '@mui/material/TextField';
   import Autocomplete from '@mui/material/Autocomplete';
-import List from '../Context/MovieList';
-import { useState ,useEffect } from 'react'
-import CustomizedHook from '../Comps/Keywords';
-
-import Switch from '@mui/material/Switch';
-
-// FLoating button
+  import List from '../Context/MovieList';
+  import { useState ,useEffect } from 'react'
+  import CustomizedHook from '../Comps/Keywords';
+  
+  import Switch from '@mui/material/Switch';
+  
+  // FLoating button
+  import Tooltip from '@mui/material/Tooltip';
 import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
 import EditIcon from '@mui/icons-material/Edit';
@@ -295,7 +295,6 @@ function Mui() {
         Navigate
       </Fab>
       <Tooltip title="Navigation Button">
-
       <Fab variant="extended" onClick={()=>  toast("Navigation Button Pressed")}  size="small" color="primary" aria-label="add">
         <NavigationIcon sx={{ mr: 1 }} />
         Extended
