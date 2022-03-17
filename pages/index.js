@@ -249,7 +249,7 @@ const handleChange = (event, newValue) => {
   return (
     <div className={styles.container}>
       <Head>
-        <title>LinkData</title>
+        <title>WorkSpace</title>
         <meta name="description" content="LinkData Manages your whole Links and Workspace" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
