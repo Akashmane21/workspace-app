@@ -16,9 +16,8 @@ const Layout = ({ children }) => {
     <meta name="theme-color" content="#014473" />
     <meta name="apple-mobile-web-app-status-bar-style" content="white" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"  />
-    <meta name="description" content="Project" />
     
-    <meta  name="description" content="Create Chat rooms and Meeting " />
+    <meta  name="description" content="Manage you WorkSpace here " />
 
 </Head>   
 
