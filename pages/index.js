@@ -69,7 +69,7 @@ export default function Home() {
   // const { isTheme , isMenu , Open_Coll, setOpen_Coll , All_data , setAll_data} = useCounter();
   const { isTheme,setisTheme , isMenu, setisMenu, All_Collection ,
     setAll_Collection ,Open_Coll, setOpen_Coll , open ,  All_data , setAll_data} = useCounter();
-const [Alldata, setAlldata] = useState({"Name":"Developed By Innovarithm" ,"Image" : "https://firebasestorage.googleapis.com/v0/b/reactcrud-7b0fc.appspot.com/o/Image%2FLogio.png?alt=media&token=576ffd49-1683-4589-92a7-784e6eff471f" })
+const [Alldata, setAlldata] = useState({"Name":"Loading..." ,"Image" : "https://firebasestorage.googleapis.com/v0/b/reactcrud-7b0fc.appspot.com/o/Image%2Fmylogo-removebg-preview.png?alt=media&token=a59224d1-787b-4f9d-94d8-204e8c7f2b3c" })
 const [AllLinks, setAllLinks] = useState([])
 const [AllNotes, setAllNotes] = useState([])
 const [AllFiles, setAllFiles] = useState([])
