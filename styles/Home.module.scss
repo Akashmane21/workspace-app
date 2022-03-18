@@ -21,11 +21,7 @@
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgb(255, 255, 255);
-  box-shadow: 0 2px 12px 0 rgba( 31, 38, 135, 0.37 );
-  backdrop-filter: blur( 4px );
-  -webkit-backdrop-filter: blur( 4px );
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  
 // background-color: #ffd700 !important;
   align-items: center;
   display: flex;
@@ -81,4 +77,17 @@
       font-size: 20px;
     }
   }
+}
+@media screen and (min-width: 480px) {
+.header{
+
+  
+  background: rgb(255, 255, 255);
+  box-shadow: 0 2px 12px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 4px );
+  -webkit-backdrop-filter: blur( 4px );
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+
 }
