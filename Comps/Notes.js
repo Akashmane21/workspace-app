@@ -136,7 +136,7 @@ export default function Notes({AllNotes , Name}) {
 <Tooltip title="Add New Link">
       <Fab variant="extended" onClick={()=>  setisform(!isform)}  size="small" color="primary" aria-label="add">
         <AddIcon sx={{ mr: 1 }} />
-        Add New
+        Add Note
       </Fab>
       </Tooltip>
 </div>

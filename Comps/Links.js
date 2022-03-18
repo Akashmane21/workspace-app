@@ -119,7 +119,7 @@ export default function Links({AllLinks , Name}) {
 <Tooltip title="Add New Link">
       <Fab variant="extended" onClick={()=>  setisform(!isform)}  size="small" color="primary" aria-label="add">
         <AddIcon sx={{ mr: 1 }} />
-        Add New
+        Add Link
       </Fab>
       </Tooltip>
 </div>
