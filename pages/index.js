@@ -290,6 +290,20 @@ const handleChange = (event, newValue) => {
           <div className="right" style={{backgroundColor:isTheme ? "#011229c9" : "white" , color:isTheme ? "white" : "black" }}>
          
 
+
+          <div className='alllex'>
+          {All_Collection ? All_Collection.map((data , key)=>
+
+<div className='ALl_colll' key={key} id={data.Name} onClick={()=>openall(data.Name)}>
+<img src={data.Image} />
+<h1>{data.Name}</h1>
+</div>
+
+) : ( <> </>)}
+</div>
+
+
+
              { Alldata && 
                <div className='main_title'>
                <img src={Alldata.Image} alt={Alldata.Name}/>
