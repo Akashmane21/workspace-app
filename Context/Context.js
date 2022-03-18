@@ -23,7 +23,8 @@ const [All_data, setAll_data] = useState([])
       todoList.push({id, ...todos[id]})
     }
     const reversed = todoList.reverse()
-    setAll_Collection(reversed)
+    setAll_Collection(reversed.reverse())
+    console.log();
   })
 
 

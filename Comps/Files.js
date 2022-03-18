@@ -323,7 +323,7 @@ const [File, setFile] = useState('')
     <div className='AllLinks'>
 
   
-    {AllFiles ? AllFiles.map((data , key)=>
+    {AllFiles.length!=0 ? AllFiles.map((data , key)=>
     <div key={key} className='links'>
         <div className='icons'>
         <Tooltip title="Download as File">
@@ -360,7 +360,10 @@ const [File, setFile] = useState('')
         <h1 >{data.Name}</h1>
         </div>
     ) : (
-        <h1>No Links here</h1>
+      <div className='nodata'>
+
+<img  src='https://image.freepik.com/free-vector/no-data-concept-illustration_114360-536.jpg' />
+    </div>
     ) }
 
 

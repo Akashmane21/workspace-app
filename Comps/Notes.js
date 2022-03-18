@@ -144,7 +144,7 @@ export default function Notes({AllNotes , Name}) {
     <div className='AllLinks'>
 
   
-    {AllNotes ? AllNotes.map((data , key)=>
+    {AllNotes.length!=0 ? AllNotes.map((data , key)=>
     <div key={key} className='links'>
         <div className='icons'>
         <Tooltip title="DOwnload as File">
@@ -168,7 +168,14 @@ export default function Notes({AllNotes , Name}) {
         <h1 >{data.Title}</h1>
         </div>
     ) : (
-        <h1>No Links here</h1>
+
+     
+          <div className='nodata'>
+
+<img  src='https://image.freepik.com/free-vector/no-data-concept-illustration_114360-536.jpg' />
+          </div>
+        
+       
     ) }
 
 

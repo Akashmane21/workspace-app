@@ -127,27 +127,40 @@ export default function Links({AllLinks , Name}) {
     <div className='AllLinks'>
 
   
-    {AllLinks ? AllLinks.map((data , key)=>
+    {AllLinks.length!=0 ? AllLinks.map((data , key)=>
     <div key={key} className='links'>
         <div className='icons'>
+        <Tooltip title="Visit the link">
+
           <a href={data.Link}>
         <IconButton aria-label="fingerprint" style={{ color:"green"  }}>
                 <CallMissedOutgoingOutlinedIcon className="svg_icons" />
             </IconButton>
             </a>
+            </Tooltip>
+            <Tooltip title="Copy Link">
+
         <IconButton onClick={()=> copyText(data.Link)} color="primary" aria-label="add to shopping cart" style={{ color:"green" }}>
                 <CopyAllIcon className="svg_icons"  />
             </IconButton>
+            </Tooltip>
+
+            <Tooltip title="Delete Link">
+
             <IconButton onClick={()=> Delete(data.id)} aria-label="fingerprint" style={{ color:"red"  }}>
                 <DeleteIcon className="svg_icons" />
             </IconButton>
+            </Tooltip>
          </div>
 
         <h2>{data.Link}</h2>
         <h1 >{data.Name}</h1>
         </div>
     ) : (
-        <h1>No Links here</h1>
+      <div className='nodata'>
+
+<img  src='https://image.freepik.com/free-vector/no-data-concept-illustration_114360-536.jpg' />
+    </div>
     ) }
 
 

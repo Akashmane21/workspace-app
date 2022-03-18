@@ -319,7 +319,10 @@ const handleChange = (event, newValue) => {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
+      
+
         <Notes Name={Name} AllNotes={AllNotes} />
+      
       </TabPanel>
       <TabPanel value={value} index={1}>
       <Links Name={Name} AllLinks={AllLinks} />

@@ -110,7 +110,7 @@ export default function Links({AllTodo , Name}) {
     <div className='AllLinks'>
 
   
-    {AllTodo ? AllTodo.map((data , key)=>
+  {AllTodo.length!=0 ? AllTodo.map((data , key)=>
     <div key={key} className={data.Complete ? 'links true' : 'links false'}>
         <div className='icons' >
         <Tooltip title="Edit Task">
@@ -143,7 +143,10 @@ export default function Links({AllTodo , Name}) {
         <h1 class='task'>{data.Task}</h1>
         </div>
     ) : (
-        <h1>No Links here</h1>
+      <div className='nodata'>
+
+      <img  src='https://image.freepik.com/free-vector/no-data-concept-illustration_114360-536.jpg' />
+    </div>
     ) }
 
 
