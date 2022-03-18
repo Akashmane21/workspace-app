@@ -255,22 +255,7 @@ const handleChange = (event, newValue) => {
       </Head>
 
         <Nav />
-        {
-                isMenu ? (
-                  <div className="LeftMenu" style={{backgroundColor:isTheme ? "#011229c9" : "white" , color:isTheme ? "white" : "black" }}>
-                   <div className='allflex'>
-                  {All_Collection ? All_Collection.map((data , key)=>
-      
-                    <div className='ALl_coll' key={key} id={data.Name} onClick={()=>openall(data.Name)}>
-                    <img src={data.Image} />
-                    <h1>{data.Name}</h1>
-                    </div>
-                  
-                   ) : ( <> </>)}
-                   </div>
-              </div>
-                ) : ( 
-                  <>
+       
         <div className="block">
           <div className="left">
           <div className="LeftMenu" style={{backgroundColor:isTheme ? "#011229c9" : "white" , color:isTheme ? "white" : "black" }}>
@@ -355,8 +340,7 @@ const handleChange = (event, newValue) => {
 
           </div>
         </div>
-</>)
-        }
+
 
     
     </div>

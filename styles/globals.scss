@@ -375,6 +375,12 @@ border-radius: 20px !important;
 
 
 .alllex{
+  display: none;
+}
+
+
+@media screen and (max-width: 480px) {
+.alllex{
   display: flex;
   flex-direction: row;
   overflow-x: scroll;
@@ -400,4 +406,6 @@ padding: 0px 20px;
       font-size: 10px;
     }
   }
+}
+
 }
