@@ -24,12 +24,53 @@ import firebase from '../db/firebase';
 import TextareaAutosize from '@mui/material/TextareaAutosize';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
+import PhotoCamera from '@mui/icons-material/PhotoCamera';
 
+import PropTypes from 'prop-types';
+import CircularProgress from '@mui/material/CircularProgress';
+import Typography from '@mui/material/Typography';
+function CircularProgressWithLabel(props) {
+  return (
+    <Box sx={{ position: 'relative', display: 'inline-flex' }}>
+      <CircularProgress variant="determinate" {...props} />
+      <Box
+        sx={{
+          top: 0,
+          left: 0,
+          bottom: 0,
+          right: 0,
+          position: 'absolute',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <Typography variant="caption" component="div" color="text.secondary">
+          {`${Math.round(props.value)}%`}
+        </Typography>
+      </Box>
+    </Box>
+  );
+}
+
+CircularProgressWithLabel.propTypes = {
+  /**
+   * The value of the progress indicator for the determinate variant.
+   * Value between 0 and 100.
+   * @default 0
+   */
+  value: PropTypes.number.isRequired,
+};
 
 
 
 export default function Files({AllFiles , Name}) {
     console.log(AllFiles);
+    var ImgName, ImgUrl ;
+    const [progress, setProgress] = useState(0);
+
+    //   const [Filetype21, setFiletype21] = useState(" ")
+      var files = [];
     const [isform, setisform] = useState(false)
     const [loading, setLoading] = useState(false);
     const [title, settitle] = useState('')
@@ -42,15 +83,17 @@ export default function Files({AllFiles , Name}) {
         toast("Coppied Successfully !")
        }
 
+
+
      async  function Delete(id){
         
-        const todoref = firebase.database().ref(`Linksdata/Akash/All_Coll/${Name}/Notes`).child(id);
+        const todoref = firebase.database().ref(`Linksdata/Akash/All_Coll/${Name}/Files`).child(id);
         todoref.remove()
         toast("item is Removed")
        }
      
 
-      async function AddFile(){
+      async function dd(){
         setLoading(true);
 
         if(Type=='Image'){
@@ -107,6 +150,103 @@ export default function Files({AllFiles , Name}) {
 
 
 
+
+const [File, setFile] = useState('')       
+
+  const Chooseme = (e) => {
+ 
+   
+    files = e.target.files;
+    localStorage.setItem("file",JSON.stringify(files))
+   console.log(files[0]);
+   const ff = JSON.stringify(files[0])
+   setFile(ff)
+
+    var reader = new FileReader();
+    reader.onload = function () {
+      // document.getElementById("img").src = reader.result;
+      console.log(reader.result);
+    };
+    reader.readAsDataURL(files[0]);
+  };
+
+
+
+  
+
+  const AddFile = async () => {
+    setLoading(true);
+    
+    var x = document.getElementById("fileInput");
+  var txt = "";
+  // console.log(x.files[0]);
+  console.log(x.files[0].name);
+
+  
+    var uploadTask = firebase
+      .storage()
+      .ref("Image/" + x.files[0].name )
+      .put(x.files[0]);
+
+    uploadTask.on(
+      "state_changed",
+      function (snapshot) {
+        var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        setProgress(progress)
+       
+      },
+
+      // --------Error Handling-------------------------------
+
+      function (err) {
+        alert("Error to Saving the Image");
+      },
+
+      // ------------Submit image into Database---------------
+      function () {
+        uploadTask.snapshot.ref.getDownloadURL().then(function (url) {
+            console.log(url);
+          ImgUrl = url;
+
+
+     if(Type=='Image'){
+
+         const data={
+             "Name":title,
+             "Image":ImgUrl,
+             "Type":Type
+         }
+             const main =  firebase.database().ref(`Linksdata/Akash/All_Coll/${Name}/Files`);
+             main.push(data)
+       
+
+      
+     }
+     else{
+         const data={
+             "Name":title,
+             "Data":ImgUrl,
+             "Type":Type
+         }
+             const main =  firebase.database().ref(`Linksdata/Akash/All_Coll/${Name}/Files`);
+             main.push(data)
+       
+             
+         }
+         toast("Data Inserted Successfully")
+          setLoading(false);
+          setProgress(0)
+          setisform(!isform)
+
+
+        });
+      }
+    );
+  };
+
+
+
+
   return (
     <>
 
@@ -132,21 +272,12 @@ export default function Files({AllFiles , Name}) {
       
 
 
-     <InputLabel htmlFor="input-with-icon-adornment">
-          File Link
-        </InputLabel>
-        <Input
-          id="input-with-icon-adornment"
-          onChange={(e)=> setImage(e.target.value) }
-          startAdornment={
-            <InputAdornment position="start">
-              <AddLinkIcon />
-            </InputAdornment>
-          }
-        />
+        <br></br>
 
-      </FormControl>
-
+            <input className="completebtn" id="fileInput" type="file" onChange={Chooseme} />
+          
+          </FormControl>
+          
 
 
 
@@ -172,6 +303,8 @@ export default function Files({AllFiles , Name}) {
       >
         Send
       </LoadingButton>
+      <label id="upprogress"></label>
+      <CircularProgressWithLabel value={progress} />
     </Box>
 </div>
 }
