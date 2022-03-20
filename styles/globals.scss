@@ -356,14 +356,20 @@ color: #000000;
   background-color: #fff;
 border-radius: 20px !important;
 }
-
+.MuiTabs-flexContainer{
+ 
+ position: sticky;
+ top: 0;
+}
 @media screen and (max-width: 480px) {
   .MuiTabs-flexContainer{
     // width: 300px;
     padding-left: 30px;
-    overflow-x: scroll;
-    scrollbar-width: 10px;
+    // overflow-x: scroll;
+    // scrollbar-width: 10px;
     // margin-left: 30px;
+   position: sticky;
+   top: 0;
   }
   .main_title{
     h1{
