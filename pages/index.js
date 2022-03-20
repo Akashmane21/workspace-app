@@ -330,7 +330,10 @@ setdeleteid(id)
       <Head>
         <title>WorkSpace</title>
         <meta name="description" content="LinkData Manages your whole Links and Workspace" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="icons/icon-512.png" />
+        <meta name="theme-color" content="#007fff"/>
+        <meta name="apple-mobile-web-app-status-bar-style" content="red" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="red-translucent"  />
       </Head>
 
 
