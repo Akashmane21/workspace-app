@@ -81,7 +81,7 @@ export default function Notes({AllNotes , Name}) {
 
 
   return (
-    <>
+    <div >
 
 
 {isform && 
@@ -200,6 +200,6 @@ export default function Notes({AllNotes , Name}) {
         />
         {/* Same as */}
 <ToastContainer />
-    </>
+    </div>
   )
 }
