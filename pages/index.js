@@ -38,6 +38,9 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
 import IconButton from '@mui/material/IconButton';
+import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
+
+
 import Modal from '@mui/material/Modal';
 const style = {
   position: 'absolute',
@@ -397,7 +400,9 @@ setdeleteid(id)
       />
 
       <br />
-  
+      <Button className='deletee' onClick={()=> setisform(false)} variant="outlined" startIcon={<CloseRoundedIcon />}>
+                Cancel 
+            </Button>
              <LoadingButton
         onClick={AddLink}
         endIcon={<SendIcon />}
