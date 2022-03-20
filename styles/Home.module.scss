@@ -17,7 +17,7 @@
 
 
 .header{
-  // background-color: #e6eaee;
+  background-color: #053504 !important;
   position: fixed;
   top: 0;
   width: 100%;
@@ -30,17 +30,23 @@
   height: 60px;
   padding-right: 30px;
   h1{
+    color: #ffffffd0 !important;
     font-weight: 900;
     font-size: 25px;
     position: relative;
-    top: -6px;
+    top: -4px;
+    text-transform: uppercase;
+    font-weight: 900;
+    word-spacing: 4px;
+    font-family:'Times New Roman', Times, serif;
   }
-  
+  .MuiChip-labelMedium{
+    color: red !important;
+  }
   li{
     display: flex;
     flex-direction: row;
     padding-top: 10px;
-    // font-family: 'Poppins', sans-serif;
     font-weight: 700;
   }
 

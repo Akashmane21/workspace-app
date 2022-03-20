@@ -1,9 +1,6 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import LeftMenu from '../Comps/LeftMenu'
 import Nav from '../Comps/Nav'
 import styles from '../styles/Home.module.scss'
-import Mui from './Mui'
 import { useCounter } from "../Context/Context";
 import firebase from '../db/firebase'
 import { useEffect , useState  } from 'react'
@@ -14,16 +11,13 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import FavoriteIcon from '@mui/icons-material/Favorite';
 import Links from '../Comps/Links'
 import Notes from '../Comps/Notes'
 import Files from '../Comps/Files'
 import Todos from '../Comps/Todos'
-import Avatar from '@mui/material/Avatar';
 // Create New Collection 
 import SendIcon from '@mui/icons-material/Send';
   import Tooltip from '@mui/material/Tooltip';
-import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
 import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -33,13 +27,13 @@ import InputLabel from '@mui/material/InputLabel';
 import InputAdornment from '@mui/material/InputAdornment';
 import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
-import AddLinkIcon from '@mui/icons-material/AddLink';
 import LoadingButton from '@mui/lab/LoadingButton';
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
 import IconButton from '@mui/material/IconButton';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
-
+import Backdrop from '@mui/material/Backdrop';
+import CircularProgress from '@mui/material/CircularProgress';
 
 import Modal from '@mui/material/Modal';
 const style = {
@@ -96,7 +90,15 @@ export default function Home() {
   const [openmodel, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  
+
+
+  const [fullopen, setfullOpen] = useState(true);
+  const handlefullClose = () => {
+    setfullOpen(false);
+  };
+  const handlefullToggle = () => {
+    setfullOpen(!fullopen);
+  };
 
   // const { isTheme , isMenu , Open_Coll, setOpen_Coll , All_data , setAll_data} = useCounter();
   const { isTheme,setisTheme , isMenu, setisMenu, All_Collection ,
@@ -119,11 +121,11 @@ const handleChange = (event, newValue) => {
 };
   useEffect(()=>{
 
-    console.log(query);
-    
+  
     const todoref = firebase.database().ref(`Linksdata/Akash/All_Coll/My Workspace/info`);
     todoref.on('value' , (snapshot)=>{
       const todos =snapshot.val()
+      setfullOpen(false)
       setAlldata(todos)
       try{
         
@@ -342,6 +344,14 @@ setdeleteid(id)
       </Head>
 
 
+      <Backdrop
+        sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open={fullopen}
+        onClick={handlefullClose}
+      >
+        <CircularProgress color="inherit" />
+      </Backdrop>
+
 
       <Modal
         open={openmodel}
@@ -424,7 +434,7 @@ setdeleteid(id)
           <div className="left">
           <div className="LeftMenu" style={{backgroundColor:isTheme ? "#011229c9" : "white" , color:isTheme ? "white" : "black" }}>
           <div className='Add'>
-            <img src='https://static.vecteezy.com/system/resources/previews/000/119/371/original/brown-flat-workspace-vector-illustration.jpg'  />
+            <img src='https://static.vecteezy.com/system/resources/previews/000/140/164/original/workspace-with-lineart-style-vector.jpg'  />
             
       <Tooltip title="Add New Collection">
            <Button onClick={AddNew} variant="outlined" startIcon={<AddIcon />}>
