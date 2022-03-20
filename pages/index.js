@@ -337,6 +337,8 @@ setdeleteid(id)
         <meta name="theme-color" content="#007fff"/>
         <meta name="apple-mobile-web-app-status-bar-style" content="red" />
     <meta name="apple-mobile-web-app-status-bar-style" content="red-translucent"  />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
       </Head>
 
 
