@@ -621,21 +621,28 @@ setdeleteid(id)
              <>
                <div className='main_title'>
                <img  loading='lazy' src={Alldata.Image} alt={Alldata.Name}/>
-               <h1>{Alldata.Name}</h1>
-               <div className='delete'>
 
-<Tooltip title="Add New Collection">
-<IconButton onClick={()=> handleOpen()} aria-label="fingerprint" style={{ color:"red"  }}>
+               <div className='deletecoll'>
+               <h1>{Alldata.Name}</h1>
+               <div className='iconss'>
+
+               <Tooltip title="Add New Collection">
+               <IconButton onClick={()=> handleOpen()} aria-label="fingerprint" className='Delette'>
                 <DeleteIcon className="svg_icons" />
             </IconButton>
-</Tooltip>
-  </div>
+                
+              </Tooltip> 
+              <IconButton onClick={()=> handleOpen()} aria-label="fingerprint" className='edit'>
+                <AddIcon className="svg_icons" />
+            </IconButton>
+               </div>
+         </div>
                </div>
         </>
              
-              }
+            }
    
-
+         
 
 
 
