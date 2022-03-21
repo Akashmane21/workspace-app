@@ -320,7 +320,7 @@ const [File, setFile] = useState('')
       </Tooltip>
 </div>
 
-    <div className='AllLinks'>
+    <div className='AllLinks allfiles'>
 
   
     {AllFiles.length!=0 ? AllFiles.map((data , key)=>

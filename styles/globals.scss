@@ -314,6 +314,27 @@ textarea{
       width: 100px;
   }
   }  
+
+  
+.AllLinks{
+  padding: 0px !important;
+  .links{
+    .icons{
+      width: 100%;
+    }
+width: 43% !important;
+// align-items: center;
+    img{
+      height: 80px;
+      width: 100px;
+      padding-left: 10%;
+    }
+  }
+}
+
+p{
+  padding: 0px !important;
+}
 }
 .MuiButtonBase-root{
   // margin-right: 2px;
@@ -363,19 +384,15 @@ border-radius: 20px !important;
 }
 @media screen and (max-width: 480px) {
   .MuiTabs-flexContainer{
-    // width: 300px;
-    padding-left: 30px;
-    // overflow-x: scroll;
-    // scrollbar-width: 10px;
-    // margin-left: 30px;
-   position: sticky;
-   top: 0;
+    padding-left: 30px;   
   }
   .main_title{
     h1{
       font-size: 20px;
     }
   }
+
+  
 }
 
   .true{
