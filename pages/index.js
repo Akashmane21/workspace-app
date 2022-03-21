@@ -449,7 +449,7 @@ setdeleteid(id)
         <title>WorkSpace</title>
         <meta name="description" content="LinkData Manages your whole Links and Workspace" />
         <link rel="icon" href="icons/icon-512.png" />
-        <meta name="theme-color" content="#007fff"/>
+        <meta name="theme-color" content="#ffffff"/>
         <meta name="apple-mobile-web-app-status-bar-style" content="red" />
     <meta name="apple-mobile-web-app-status-bar-style" content="red-translucent"  />
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -631,9 +631,7 @@ setdeleteid(id)
                <div className='hh'>
 
                <Tooltip title="Delete Collection">
-               {/* <IconButton onClick={()=> handleOpen()} aria-label="fingerprint" className='Delette'>
-                <DeleteIcon className="svg_icons" />
-            </IconButton> */}
+              
 
 <Button className='Delette' style={{border:"0px solid red"}} onClick={()=> handleOpen()} variant="outlined" endIcon={<DeleteIcon />}>
             Delete 
