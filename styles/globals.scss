@@ -280,12 +280,12 @@ textarea{
 }
 .Addme{
   
-  margin: 10px 20px;
+  margin: 10px 20px !important;
   border-radius: 6px !important;
   
 }
 .btnflex{
-  display: flex;
+  display: flex !important;
 }
 
 
@@ -521,7 +521,7 @@ color: white;
   color: rgb(94, 1, 1) !important;
   border: 1px solid gray !important;
   // border-radius: 30px !important;
-  margin-right: 10px;
+  margin-right: 10px !important;
 }
 
 .blockk{
