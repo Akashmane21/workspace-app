@@ -55,7 +55,7 @@ p{
 
 
   .right{
-    padding-top: 70px;
+    padding-top: 12vh;
     // border: 1px solid rgba(0, 46, 253, 0.781);
 height: 100vh;
 overflow: scroll;
@@ -554,4 +554,9 @@ border-radius: 10px;
     cursor: pointer;
   }
 }
+}
+
+.tabs{
+  height: 55vh;
+  overflow-y: scroll;
 }

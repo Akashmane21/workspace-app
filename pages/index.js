@@ -640,20 +640,11 @@ setdeleteid(id)
 
 
 
-
-
 <Box sx={{ width: '100%' }}   >
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" centered
-        // variant="scrollable"
-        // scrollButtons="auto"
-         >
-          <Tab label="Notes" {...a11yProps(0)} />
-          <Tab label="Links" {...a11yProps(1)} />
-          <Tab label="Files" {...a11yProps(2)} />
-          <Tab label="Todos" {...a11yProps(3)} />
-        </Tabs>
-      </Box>
+      
+
+<div className='tabs'>
+
       <TabPanel value={value} index={0}>
       
 
@@ -669,6 +660,19 @@ setdeleteid(id)
       <TabPanel value={value} index={3}>
        <Todos Name={Name} AllTodo={AllTodos} />
       </TabPanel>
+</div>
+
+      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" centered
+        // variant="scrollable"
+        // scrollButtons="auto"
+         >
+          <Tab label="Notes" {...a11yProps(0)} />
+          <Tab label="Links" {...a11yProps(1)} />
+          <Tab label="Files" {...a11yProps(2)} />
+          <Tab label="Todos" {...a11yProps(3)} />
+        </Tabs>
+      </Box>
     </Box>
 
 
