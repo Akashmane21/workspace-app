@@ -584,10 +584,12 @@ border-radius: 10px;
     width: 100%;
     overflow-x: scroll;
     
-  background: rgb(255, 255, 255);
+  // background: rgb(255, 255, 255);
   -webkit-backdrop-filter: blur( 4px );
-  border-radius: 10px;
+  border-radius: 15px 15px 0px 0px;
   border: 1px solid rgba( 255, 255, 255, 0.18 );
+  background-color: #02292c !important;
+
   
   }
   .destabs{
