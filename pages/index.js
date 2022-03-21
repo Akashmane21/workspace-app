@@ -631,9 +631,13 @@ setdeleteid(id)
                <div className='hh'>
 
                <Tooltip title="Delete Collection">
-               <IconButton onClick={()=> handleOpen()} aria-label="fingerprint" className='Delette'>
+               {/* <IconButton onClick={()=> handleOpen()} aria-label="fingerprint" className='Delette'>
                 <DeleteIcon className="svg_icons" />
-            </IconButton>
+            </IconButton> */}
+
+<Button className='Delette' style={{border:"0px solid red"}} onClick={()=> handleOpen()} variant="outlined" endIcon={<DeleteIcon />}>
+            Delete 
+        </Button>
                 
               </Tooltip> 
             
