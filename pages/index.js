@@ -324,11 +324,11 @@ setdeleteid(id)
 
 
  async function Delete(){
-   toast(deleteid)
-    // const todoref = firebase.database().ref(`Linksdata/Akash/CollectionName`).child(deleteid);
-    // todoref.remove()
-    // toast("item is Removed")
-    // window.location.reload()
+ 
+    const todoref = firebase.database().ref(`Linksdata/Akash/CollectionName`).child(deleteid);
+    todoref.remove()
+    toast("item is Removed")
+    window.location.reload()
    
 
   }
