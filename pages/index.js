@@ -34,7 +34,23 @@ import IconButton from '@mui/material/IconButton';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
+import SpeedDial from '@mui/material/SpeedDial';
+import SpeedDialIcon from '@mui/material/SpeedDialIcon';
+import SpeedDialAction from '@mui/material/SpeedDialAction';
+import FileCopyIcon from '@mui/icons-material/FileCopyOutlined';
+import SaveIcon from '@mui/icons-material/Save';
+import PrintIcon from '@mui/icons-material/Print';
+import ShareIcon from '@mui/icons-material/Share';
 
+
+
+
+const actions = [
+  { icon: <FileCopyIcon />, name: 'Copy' },
+  { icon: <SaveIcon />, name: 'Save' },
+  { icon: <PrintIcon />, name: 'Print' },
+  { icon: <ShareIcon />, name: 'Share' },
+];
 import Modal from '@mui/material/Modal';
 const style = {
   position: 'absolute',
@@ -206,6 +222,13 @@ export default function Home() {
   const handlefullToggle = () => {
     setfullOpen(!fullopen);
   };
+
+
+  const [oopen, setoOpen] = useState(false);
+  const hhandleOpen = () => setoOpen(true);
+  const hhandleClose = () => setoOpen(false);
+
+
 
   // const { isTheme , isMenu , Open_Coll, setOpen_Coll , All_data , setAll_data} = useCounter();
   const { isTheme,setisTheme , isMenu, setisMenu, All_Collection ,
@@ -632,9 +655,10 @@ setdeleteid(id)
             </IconButton>
                 
               </Tooltip> 
-              <IconButton onClick={()=> handleOpen()} aria-label="fingerprint" className='edit'>
-                <AddIcon className="svg_icons" />
-            </IconButton>
+
+           
+
+
                </div>
          </div>
                </div>
@@ -645,7 +669,27 @@ setdeleteid(id)
          
 
 
-
+   <Box sx={{ height: 330, transform: 'translateZ(0px)', flexGrow: 1  }} className="adddd">
+      <Backdrop open={oopen} />
+      <SpeedDial
+        ariaLabel="SpeedDial tooltip example"
+        sx={{ position: 'absolute', bottom: 16, right: 16 }}
+        icon={<SpeedDialIcon />}
+        onClose={hhandleClose}
+        onOpen={hhandleOpen}
+        open={oopen}
+      >
+        {actions.map((action) => (
+          <SpeedDialAction
+            key={action.name}
+            icon={action.icon}
+            tooltipTitle={action.name}
+            tooltipOpen
+            onClick={hhandleClose}
+          />
+        ))}
+      </SpeedDial>
+    </Box>
 
 
 
@@ -704,7 +748,7 @@ setdeleteid(id)
           </div>
         </div>
 
-
+       
     
     </div>
   )
