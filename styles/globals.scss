@@ -167,11 +167,10 @@ background-color: #fff;
 
   }
 }
-// 
+
 .main_title{
   display: flex;
-  align-items: center;
-  justify-content: center;
+  padding-left: 15px;
 img{
     height: 100px;
     width: 110px;
@@ -556,7 +555,25 @@ border-radius: 10px;
 }
 }
 
-.tabs{
-  height: 65vh;
-  overflow-y: scroll;
+
+
+
+@media screen and (min-width: 480px) {
+
+  .tabs{
+    display: none;
+  }
+}
+
+@media screen and (max-width: 480px) {
+
+  .tabs{
+    position: fixed;
+    bottom: 0;
+    width: 300px;
+    overflow-x: scroll;
+  }
+  .destabs{
+    display: none;
+  }
 }
