@@ -297,7 +297,10 @@ textarea{
 .Addme{
   
   margin: 10px 20px !important;
-  border-radius: 6px !important;
+  // border-radius: 6px !important;
+  font-size: 40px;
+position: relative;
+top: -40px;
   
 }
 .btnflex{
@@ -620,11 +623,7 @@ border-radius: 0px 0px 70px 0px;
   .destabs{
     display: none;
   }
-  .Addme{
-    position: fixed;
-    bottom: 0;
-    margin-bottom: 40px;
-  }
+ 
   .alllex{
    padding-top: 70px; 
    padding-bottom: 0px !important;

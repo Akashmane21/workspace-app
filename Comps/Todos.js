@@ -132,12 +132,12 @@ export default function Links({AllTodo , Name}) {
 
 
 
-<div className='Addme'>
+<div style={{ "textAlign":"end"}}>
 
 <Tooltip title="Add New Link">
-      <Fab  variant="extended" onClick={()=>  setOpen(true)}  size="small" color="primary" aria-label="add">
-        <AddIcon sx={{ mr: 1 }} />
-        Add Task
+      <Fab  className='Addme' variant="circular" onClick={()=>  setOpen(true)}  size="small" color="primary" aria-label="add">
+        <AddIcon sx={{  }} />
+        
       </Fab>
       </Tooltip>
 </div>

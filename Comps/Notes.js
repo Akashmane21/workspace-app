@@ -167,9 +167,9 @@ export default function Notes({AllNotes , Name}) {
 <div style={{ "textAlign":"end"}}>
 
 <Tooltip title="Add New Link">
-      <Fab className='Addme' variant="extended" onClick={()=>  setOpen(true)}  size="small" color="primary" aria-label="add">
-        <AddIcon sx={{ mr: 1 }} />
-        Add Note
+      <Fab className='Addme' variant="circular" onClick={()=>  setOpen(true)}  size="small" color="primary" aria-label="add">
+        <AddIcon sx={{}} />
+        
       </Fab>
       </Tooltip>
 </div>

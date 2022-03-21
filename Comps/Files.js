@@ -349,9 +349,9 @@ const [File, setFile] = useState('')
 <div style={{ "textAlign":"end"}}>
 
 <Tooltip title="Add New Link">
-      <Fab className='Addme' variant="extended" onClick={()=>  setOpen(true)}  size="small" color="primary" aria-label="add">
+      <Fab className='Addme' variant="circular" onClick={()=>  setOpen(true)}  size="small" color="primary" aria-label="add">
         <AddIcon  />
-        Add File
+        
       </Fab>
       </Tooltip>
 </div>
