@@ -350,7 +350,7 @@ const [File, setFile] = useState('')
 
 <Tooltip title="Add New Link">
       <Fab className='Addme' variant="circular" onClick={()=>  setOpen(true)}  size="small" color="primary" aria-label="add">
-        <AddIcon  />
+        <AddIcon sx={{fontSize:30}}  />
         
       </Fab>
       </Tooltip>

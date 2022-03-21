@@ -628,15 +628,15 @@ setdeleteid(id)
 
                <div className='deletecoll'>
                <h1>{Alldata.Name}</h1>
-               <div className='iconss'>
+               <div className='hh'>
 
-               <Tooltip title="Add New Collection">
+               <Tooltip title="Delete Collection">
                <IconButton onClick={()=> handleOpen()} aria-label="fingerprint" className='Delette'>
                 <DeleteIcon className="svg_icons" />
             </IconButton>
                 
               </Tooltip> 
-
+            
            
 
 
