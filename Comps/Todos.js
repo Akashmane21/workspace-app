@@ -20,6 +20,25 @@ import AddTaskRoundedIcon from '@mui/icons-material/AddTaskRounded';
 import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
 import firebase from '../db/firebase';
+import Modal from '@mui/material/Modal';
+import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
+import { Button } from '@mui/material';
+
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 300,
+  bgcolor: 'background.paper',
+  border: '2px solid green',
+  boxShadow: 24,
+  p: 4,
+  borderRadius: 2,
+};
+
+
 
 export default function Links({AllTodo , Name}) {
     console.log(AllTodo);
@@ -27,6 +46,10 @@ export default function Links({AllTodo , Name}) {
     const [loading, setLoading] = useState(false);
     const [title, settitle] = useState('')
     const [checked, setChecked] = useState(false);
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+  
 
 
 
@@ -40,6 +63,7 @@ export default function Links({AllTodo , Name}) {
        }
 
       async function AddTask(){
+        
         setLoading(true);
         const data={
             "Task":title,
@@ -54,53 +78,64 @@ export default function Links({AllTodo , Name}) {
           
         toast("Task Added ")
           setLoading(false);
-          setisform(!isform)
+          setOpen(false)
        }
 
-       const  handleChange = async (event , id) => {
-     
-      };
+    
 
   return (
     <>
 
-
-{isform && 
-<div className='form'>
-<Box sx={{ '& > :not(style)': { m: 1 } }}>
-      
-      <TextField
-        id="input-with-icon-textfield"
-        label="Add Task"
-        onChange={(e)=> settitle(e.target.value) }
-        InputProps={{
-          startAdornment: (
-            <InputAdornment position="start">
-              <AddTaskRoundedIcon />
-            </InputAdornment>
-          ),
-        }}
-        variant="standard"
-      />
-  
-             <LoadingButton
-        onClick={AddTask}
-        endIcon={<SendIcon />}
-        loading={loading}
-        loadingPosition="end"
-        variant="contained"
+    <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
       >
-        Send
-      </LoadingButton>
-    </Box>
-</div>
-}
+        <Box sx={style}>
+        <div className='form'>
+          <h2>Add Task :</h2>
+            <TextField
+                    id="input-with-icon-textfield"
+                    label="Add Task"
+                    onChange={(e)=> settitle(e.target.value) }
+                    InputProps={{
+                      startAdornment: (
+                        <InputAdornment position="start">
+                          <AddTaskRoundedIcon />
+                        </InputAdornment>
+                      ),
+                    }}
+                  
+                  />
+              <br />
+              <br />
+              <div className='btnflex'>
+
+    <Button className='deletee' onClick={()=> setOpen(false)} variant="outlined" endIcon={<CloseRoundedIcon />}>
+                Cancel 
+            </Button>
+                        <LoadingButton
+                    onClick={AddTask}
+                    endIcon={<SendIcon />}
+                    loading={loading}
+                    loadingPosition="end"
+                    variant="outlined"
+                  >
+                    Sumbit
+                  </LoadingButton>
+                  </div>
+        </div>
+        </Box>
+      </Modal>
+
+
 
 
 <div style={{ "textAlign":"end"}}>
 
 <Tooltip title="Add New Link">
-      <Fab variant="extended" onClick={()=>  setisform(!isform)}  size="small" color="primary" aria-label="add">
+      <Fab className='Addme' variant="extended" onClick={()=>  setOpen(true)}  size="small" color="primary" aria-label="add">
         <AddIcon sx={{ mr: 1 }} />
         Add Task
       </Fab>

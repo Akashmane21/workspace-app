@@ -264,8 +264,6 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
   margin-bottom: 20px;
   
   background: rgba(255, 255, 255, 0.849);
-box-shadow: 0 8px 12px 0 rgba( 31, 38, 135, 0.37 );
-// backdrop-filter: blur( 4px );
 -webkit-backdrop-filter: blur( 4px );
 border-radius: 10px;
 border: 1px solid rgba( 255, 255, 255, 0.18 );
@@ -275,8 +273,19 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 .css-1nrlq1o-MuiFormControl-root{
 textarea{
-  height: 50px !important;
+  // height: 50px !important;
+  border-radius: 1px solid gray;
+
 }
+}
+.Addme{
+  
+  margin: 10px 20px;
+  border-radius: 6px !important;
+  
+}
+.btnflex{
+  display: flex;
 }
 
 
@@ -508,10 +517,11 @@ color: white;
   align-items: flex-end;
 }
 .deletee{
-  background-color: rgba(163, 30, 30, 0.075) !important;
+  background-color: rgba(219, 46, 46, 0.034) !important;
   color: rgb(94, 1, 1) !important;
   border: 1px solid gray !important;
-  border-radius: 30px !important;
+  // border-radius: 30px !important;
+  margin-right: 10px;
 }
 
 .blockk{

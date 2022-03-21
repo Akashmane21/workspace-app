@@ -22,7 +22,22 @@ import 'react-toastify/dist/ReactToastify.css';
 import CloudDownloadRoundedIcon from '@mui/icons-material/CloudDownloadRounded';
 import firebase from '../db/firebase';
 import TextareaAutosize from '@mui/material/TextareaAutosize';
+import Modal from '@mui/material/Modal';
+import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 300,
+  bgcolor: 'background.paper',
+  border: '2px solid green',
+  boxShadow: 24,
+  p: 4,
+  borderRadius: 2,
+};
 
 
 
@@ -32,7 +47,10 @@ export default function Notes({AllNotes , Name}) {
     const [loading, setLoading] = useState(false);
     const [title, settitle] = useState('')
     const [Note, setNote] = useState('')
-
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+  
 
     function copyText(Note){
         navigator.clipboard.writeText(Note);
@@ -63,6 +81,7 @@ export default function Notes({AllNotes , Name}) {
         toast("Data Inserted")
           setLoading(false);
           setisform(!isform)
+          setOpen(false)
        }
 
        function Download(data , Name){
@@ -83,10 +102,15 @@ export default function Notes({AllNotes , Name}) {
   return (
     <div >
 
-
-{isform && 
-<div className='form'>
-<Box sx={{ '& > :not(style)': { m: 1 } }}>
+<Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+        <div className='form'>
+          <h2>Add Note :</h2>
 <TextField
         id="input-with-icon-textfield"
         label="Title"
@@ -98,43 +122,52 @@ export default function Notes({AllNotes , Name}) {
             </InputAdornment>
           ),
         }}
-        variant="standard"
+      
       />
-      <FormControl variant="standard">
+      <br />
+      <br />
+     
 
 <TextareaAutosize
       aria-label="empty textarea"
       onChange={(e)=> setNote(e.target.value) }
       placeholder="Enter Note Here"
-      style={{ width: 200 }}
+      style={{ width: 210 , height:100 , borderRadius:4 , padding:10 , borderColor:'gray' }}
+
     />
-        {/* <InputLabel htmlFor="input-with-icon-adornment">
-          Write Note
-        </InputLabel> */}
+    <br />
+    <br />
+      
        
 
 
-      </FormControl>
-      
-  
+<div className='btnflex'>
+
+    <Button className='deletee' onClick={()=> setOpen(false)} variant="outlined" endIcon={<CloseRoundedIcon />}>
+                Cancel 
+            </Button>
              <LoadingButton
         onClick={AddNote}
         endIcon={<SendIcon />}
         loading={loading}
         loadingPosition="end"
-        variant="contained"
+        variant="outlined"
       >
-        Send
+        Submit
       </LoadingButton>
-    </Box>
 </div>
-}
+      
+    
+</div>
+        </Box>
+      </Modal>
+  
 
 
 <div style={{ "textAlign":"end"}}>
 
 <Tooltip title="Add New Link">
-      <Fab variant="extended" onClick={()=>  setisform(!isform)}  size="small" color="primary" aria-label="add">
+      <Fab className='Addme' variant="extended" onClick={()=>  setOpen(true)}  size="small" color="primary" aria-label="add">
         <AddIcon sx={{ mr: 1 }} />
         Add Note
       </Fab>

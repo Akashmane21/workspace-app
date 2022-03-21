@@ -24,6 +24,24 @@ import CodeIcon from '@mui/icons-material/Code';
 import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
 import firebase from '../db/firebase';
+import Modal from '@mui/material/Modal';
+import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
+
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 300,
+  bgcolor: 'background.paper',
+  border: '2px solid green',
+  boxShadow: 24,
+  p: 4,
+  borderRadius: 2,
+};
+
+
 
 export default function Links({AllLinks , Name}) {
     console.log(Name);
@@ -31,6 +49,10 @@ export default function Links({AllLinks , Name}) {
     const [loading, setLoading] = useState(false);
     const [title, settitle] = useState('')
     const [link, setlink] = useState('')
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+  
 
 
     function copyText(link){
@@ -47,6 +69,7 @@ export default function Links({AllLinks , Name}) {
 
       async function AddLink(){
         setLoading(true);
+        
         const data={
             "Name":title,
             "Link":link
@@ -60,7 +83,7 @@ export default function Links({AllLinks , Name}) {
           
         toast("Data Inserted")
           setLoading(false);
-          setisform(!isform)
+          setOpen(false)
        }
 
 
@@ -68,56 +91,70 @@ export default function Links({AllLinks , Name}) {
   return (
     <>
 
-
-{isform && 
-<div className='form'>
-<Box sx={{ '& > :not(style)': { m: 1 } }}>
-      <FormControl variant="standard">
-        <InputLabel htmlFor="input-with-icon-adornment">
-          Insert Link
-        </InputLabel>
-        <Input
-          id="input-with-icon-adornment"
-          onChange={(e)=> setlink(e.target.value) }
-          startAdornment={
-            <InputAdornment position="start">
-              <AddLinkIcon />
-            </InputAdornment>
-          }
-        />
-      </FormControl>
-      <TextField
-        id="input-with-icon-textfield"
-        label="Title"
-        onChange={(e)=> settitle(e.target.value) }
-        InputProps={{
-          startAdornment: (
-            <InputAdornment position="start">
-              <CodeIcon />
-            </InputAdornment>
-          ),
-        }}
-        variant="standard"
-      />
-  
-             <LoadingButton
-        onClick={AddLink}
-        endIcon={<SendIcon />}
-        loading={loading}
-        loadingPosition="end"
-        variant="contained"
+<Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
       >
-        Send
-      </LoadingButton>
-    </Box>
-</div>
-}
+        <Box sx={style}>
+        <div className='form'>
+          <h2>Add Link :</h2>
+          <TextField
+                  id="input-with-icon-adornment"
+                  label="Title"
+                  onChange={(e)=> settitle(e.target.value) }
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <CodeIcon />
+                      </InputAdornment>
+                    ),
+                  }}
+                  
+                />
+            <br />
+            <br />
+                  <TextField
+                    id="input-with-icon-adornment"
+                    label="Link"
+                    onChange={(e)=> setlink(e.target.value) }
+                    InputProps={{
+                    startAdornment:(
+                      <InputAdornment position="start">
+                        <AddLinkIcon />
+                      </InputAdornment>
+                    ),
+                  }}
+                  />
+                  <br /><br />
+
+
+                  <div className='btnflex'>
+
+<Button className='deletee' onClick={()=> setOpen(false)} variant="outlined" endIcon={<CloseRoundedIcon />}>
+            Cancel 
+        </Button>
+                      <LoadingButton
+                  onClick={AddLink}
+                  endIcon={<SendIcon />}
+                  loading={loading}
+                  loadingPosition="end"
+                  variant="outlined"
+                >
+                  Submit
+                </LoadingButton>
+                </div>
+        </div>
+        </Box>
+      </Modal>
+
 
 
 <div style={{ "textAlign":"end"}}>
 
 <Tooltip title="Add New Link">
-      <Fab variant="extended" onClick={()=>  setisform(!isform)}  size="small" color="primary" aria-label="add">
+      <Fab className='Addme' variant="extended" onClick={()=>  setOpen(true)}  size="small" color="primary" aria-label="add">
         <AddIcon sx={{ mr: 1 }} />
         Add Link
       </Fab>

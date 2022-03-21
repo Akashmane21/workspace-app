@@ -29,6 +29,26 @@ import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import PropTypes from 'prop-types';
 import CircularProgress from '@mui/material/CircularProgress';
 import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
+import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
+
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 300,
+  bgcolor: 'background.paper',
+  border: '2px solid green',
+  boxShadow: 24,
+  p: 4,
+  borderRadius: 2,
+};
+
+
+
+
 function CircularProgressWithLabel(props) {
   return (
     <Box sx={{ position: 'relative', display: 'inline-flex' }}>
@@ -76,6 +96,10 @@ export default function Files({AllFiles , Name}) {
     const [title, settitle] = useState('')
     const [Image, setImage] = useState('')
     const [Type, setType] = useState('File')
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+  
 
 
     function copyText(Note){
@@ -236,7 +260,7 @@ const [File, setFile] = useState('')
          toast("Data Inserted Successfully")
           setLoading(false);
           setProgress(0)
-          setisform(!isform)
+          setOpen(false)
 
 
         });
@@ -250,71 +274,83 @@ const [File, setFile] = useState('')
   return (
     <>
 
-
-{isform && 
-<div className='form'>
-<Box sx={{ '& > :not(style)': { m: 1 } }}>
-<TextField
-        id="input-with-icon-textfield"
-        label="Title"
-        onChange={(e)=> settitle(e.target.value) }
-        InputProps={{
-          startAdornment: (
-            <InputAdornment position="start">
-              <CodeIcon />
-            </InputAdornment>
-          ),
-        }}
-        variant="standard"
-      />
-
-      <FormControl variant="standard">
-      
-
-
-        <br></br>
-
-            <input className="completebtn" id="fileInput" type="file" onChange={Chooseme} />
-          
-          </FormControl>
-          
-
-
-
-<InputLabel id="demo-simple-select-filled-label">Age</InputLabel>
-        <Select
-          labelId="demo-simple-select-filled-label"
-          id="demo-simple-select-filled"
-          value={Type}
-          onChange={(e)=> setType(e.target.value)}
-        >
-          
-          <MenuItem value={'File'}>File</MenuItem>
-          <MenuItem value={'Image'}>Image</MenuItem>
-        </Select>
-      
-  
-             <LoadingButton
-        onClick={AddFile}
-        endIcon={<SendIcon />}
-        loading={loading}
-        loadingPosition="end"
-        variant="contained"
+<Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
       >
-        Send
-      </LoadingButton>
-      <label id="upprogress"></label>
-      <CircularProgressWithLabel value={progress} />
-    </Box>
-</div>
-}
+        <Box sx={style}>
+        <div className='form'>
+          <h2>Add File :</h2>
+                <TextField
+                        id="input-with-icon-textfield"
+                        label="Title"
+                        onChange={(e)=> settitle(e.target.value) }
+                        InputProps={{
+                          startAdornment: (
+                            <InputAdornment position="start">
+                              <CodeIcon />
+                            </InputAdornment>
+                          ),
+                        }}
+                      />
+
+                      
+
+
+                        <br />  <br />
+
+                            <input className="completebtn" id="fileInput" type="file" onChange={Chooseme} />
+                          
+                            <br />  <br />
+
+
+
+                {/* <InputLabel id="demo-simple-select-filled-label">File Type</InputLabel> */}
+                        <Select
+                          labelId="demo-simple-select-filled-label"
+                          id="demo-simple-select-filled"
+                          value={Type}
+                          style={{width:210}}
+                          onChange={(e)=> setType(e.target.value)}
+                        >
+                          
+                          <MenuItem value={'File'}>File</MenuItem>
+                          <MenuItem value={'Image'}>Image</MenuItem>
+                        </Select>
+                      
+                        <br />  
+                        <br />  
+                        <div className='btnflex'>
+
+    <Button className='deletee' onClick={()=> setOpen(false)} variant="outlined" endIcon={<CloseRoundedIcon />}>
+                Cancel 
+            </Button>
+                            <LoadingButton
+                        onClick={AddFile}
+                        endIcon={<SendIcon />}
+                        loading={loading}
+                        loadingPosition="end"
+                        variant="outlined"
+                      >
+                        Send
+                      </LoadingButton>
+                      </div>
+                      <CircularProgressWithLabel value={progress} />
+        </div>
+        </Box>
+      </Modal>
+
+
+
 
 
 <div style={{ "textAlign":"end"}}>
 
 <Tooltip title="Add New Link">
-      <Fab variant="extended" onClick={()=>  setisform(!isform)}  size="small" color="primary" aria-label="add">
-        <AddIcon sx={{ mr: 1 }} />
+      <Fab className='Addme' variant="extended" onClick={()=>  setOpen(true)}  size="small" color="primary" aria-label="add">
+        <AddIcon  />
         Add File
       </Fab>
       </Tooltip>
