@@ -46,6 +46,7 @@ const style = {
   border: '2px solid #000',
   boxShadow: 24,
   p: 4,
+  
 };
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -204,7 +205,9 @@ setdeleteid(id)
   let getcomp=document.getElementById(name);
   try{
     let rem=document.getElementById(Name)
+    let my=document.getElementById('My Workspace')
     rem.classList.remove('active')
+    my.classList.remove('active')
 
   }
   catch{
@@ -320,12 +323,12 @@ setdeleteid(id)
   }
 
 
-  function Delete(){
-    // toast(deleteid)
-    const todoref = firebase.database().ref(`Linksdata/Akash/CollectionName`).child(deleteid);
-    todoref.remove()
-    toast("item is Removed")
-    window.location.reload()
+ async function Delete(){
+   toast(deleteid)
+    // const todoref = firebase.database().ref(`Linksdata/Akash/CollectionName`).child(deleteid);
+    // todoref.remove()
+    // toast("item is Removed")
+    // window.location.reload()
    
 
   }
@@ -434,7 +437,7 @@ setdeleteid(id)
           <div className="left">
           <div className="LeftMenu" style={{backgroundColor:isTheme ? "#011229c9" : "white" , color:isTheme ? "white" : "black" }}>
           <div className='Add'>
-            <img src='https://static.vecteezy.com/system/resources/previews/000/140/164/original/workspace-with-lineart-style-vector.jpg'  />
+            <img  loading='lazy' src='https://static.vecteezy.com/system/resources/previews/000/140/164/original/workspace-with-lineart-style-vector.jpg'  />
             
       <Tooltip title="Add New Collection">
            <Button onClick={AddNew} variant="outlined" startIcon={<AddIcon />}>
@@ -446,7 +449,7 @@ setdeleteid(id)
           {All_Collection ? All_Collection.map((data , key)=>
 
 <div className='ALl_coll' key={key} id={data.Name} onClick={()=>openall(data.Name , data.id)}>
-<img src={data.Image} />
+<img  loading='lazy' src={data.Image} />
 <h1>{data.Name}</h1>
 </div>
 
@@ -475,8 +478,8 @@ setdeleteid(id)
 
           {All_Collection ? All_Collection.map((data , key)=>
 <>
-<div className='ALl_colll' key={key} id={data.Name} onClick={()=>openall(data.Name)}>
-<img src={data.Image} />
+<div className='ALl_colll' key={key} id={data.Name} onClick={()=>openall(data.Name ,  data.id)}>
+<img  loading='lazy' src={data.Image} />
 <h1>{data.Name}</h1>
 </div>
 
@@ -489,7 +492,7 @@ setdeleteid(id)
              { Alldata && 
              <>
                <div className='main_title'>
-               <img src={Alldata.Image} alt={Alldata.Name}/>
+               <img  loading='lazy' src={Alldata.Image} alt={Alldata.Name}/>
                <h1>{Alldata.Name}</h1>
                <div className='delete'>
 
