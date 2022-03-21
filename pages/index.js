@@ -640,11 +640,10 @@ setdeleteid(id)
 
 
 
+
+
 <Box sx={{ width: '100%' }}   >
-      
-
-<div className='tabs'>
-
+     <div className='tabs'>
       <TabPanel value={value} index={0}>
       
 
@@ -661,8 +660,8 @@ setdeleteid(id)
        <Todos Name={Name} AllTodo={AllTodos} />
       </TabPanel>
 </div>
-
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+    </Box>
+    <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" centered
         // variant="scrollable"
         // scrollButtons="auto"
@@ -673,9 +672,6 @@ setdeleteid(id)
           <Tab label="Todos" {...a11yProps(3)} />
         </Tabs>
       </Box>
-    </Box>
-
-
 
 
 
