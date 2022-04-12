@@ -31,6 +31,9 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
+import SearchIcon from '@mui/icons-material/Search';
+import { Empty } from 'antd';
+import { useCounter } from "../Context/Context";
 
 
 const style = {
@@ -86,13 +89,15 @@ CircularProgressWithLabel.propTypes = {
 
 export default function Files({AllFiles , Name}) {
     console.log(AllFiles);
+    const { uid} =useCounter()
+
     var ImgName, ImgUrl ;
     const [progress, setProgress] = useState(0);
+    const [loading, setLoading] = useState(false);
 
     //   const [Filetype21, setFiletype21] = useState(" ")
       var files = [];
     const [isform, setisform] = useState(false)
-    const [loading, setLoading] = useState(false);
     const [title, settitle] = useState('')
     const [Image, setImage] = useState('')
     const [Type, setType] = useState('File')
@@ -111,7 +116,7 @@ export default function Files({AllFiles , Name}) {
 
      async  function Delete(id){
         
-        const todoref = firebase.database().ref(`Linksdata/Akash/All_Coll/${Name}/Files`).child(id);
+        const todoref = firebase.database().ref(`Linksdata/${uid}/All_Coll/${Name}/Files`).child(id);
         todoref.remove()
         toast("item is Removed")
        }
@@ -127,7 +132,7 @@ export default function Files({AllFiles , Name}) {
                 "Image":Image,
                 "Type":Type
             }
-                const main = await firebase.database().ref(`Linksdata/Akash/All_Coll/${Name}/Files`);
+                const main = await firebase.database().ref(`Linksdata/${uid}/All_Coll/${Name}/Files`);
                 main.push(data)
           
 
@@ -139,7 +144,7 @@ export default function Files({AllFiles , Name}) {
                 "Data":Image,
                 "Type":Type
             }
-                const main = await firebase.database().ref(`Linksdata/Akash/All_Coll/${Name}/Files`);
+                const main = await firebase.database().ref(`Linksdata/${uid}/All_Coll/${Name}/Files`);
                 main.push(data)
           
                 
@@ -240,7 +245,7 @@ const [File, setFile] = useState('')
              "Image":ImgUrl,
              "Type":Type
          }
-             const main =  firebase.database().ref(`Linksdata/Akash/All_Coll/${Name}/Files`);
+             const main =  firebase.database().ref(`Linksdata/${uid}/All_Coll/${Name}/Files`);
              main.push(data)
        
 
@@ -252,7 +257,7 @@ const [File, setFile] = useState('')
              "Data":ImgUrl,
              "Type":Type
          }
-             const main =  firebase.database().ref(`Linksdata/Akash/All_Coll/${Name}/Files`);
+             const main =  firebase.database().ref(`Linksdata/${uid}/All_Coll/${Name}/Files`);
              main.push(data)
        
              
@@ -272,7 +277,7 @@ const [File, setFile] = useState('')
 
 
   return (
-    <>
+    < div className='All_block'>
 
 <Modal
         open={open}
@@ -307,7 +312,6 @@ const [File, setFile] = useState('')
 
 
 
-                {/* <InputLabel id="demo-simple-select-filled-label">File Type</InputLabel> */}
                         <Select
                           labelId="demo-simple-select-filled-label"
                           id="demo-simple-select-filled"
@@ -346,7 +350,17 @@ const [File, setFile] = useState('')
 
 
 
-<div style={{ "textAlign":"end"}}>
+      <div className='card_title'>
+<h2 style={{ paddingLeft:10 }}> All File's</h2>
+<TextField
+  InputProps={{
+    startAdornment: (
+      <InputAdornment position="start">
+        <SearchIcon />
+      </InputAdornment>
+    ),
+  }}
+   placeholder='Search' variant='standard' />
 
 <Tooltip title="Add New Link">
       <Fab className='Addme' variant="extended" onClick={()=>  setOpen(true)}  size="small" color="primary" aria-label="add">
@@ -397,8 +411,8 @@ const [File, setFile] = useState('')
         </div>
     ) : (
       <div className='nodata'>
+        <Empty  />
 
-<img  src='https://image.freepik.com/free-vector/no-data-concept-illustration_114360-536.jpg' />
     </div>
     ) }
 
@@ -424,6 +438,6 @@ const [File, setFile] = useState('')
         />
         {/* Same as */}
 <ToastContainer />
-    </>
+    </div >
   )
 }

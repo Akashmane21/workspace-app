@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button onclick="get()">Get Data</button>
+    <h1>Hello World</h1>
+    <div class="get">
+        <h1>Hello</h1>
+    </div>
+
+    <script>
+
+        function get(){
+            var val=prompt("Enter Data here")
+            let data=document.querySelector(".get")
+            var dev=document.createElement('h1')
+            dev.innerHTML=val
+            data.appendChild(dev)
+
+            console.log(data);
+        }
+
+    </script>
+</body>
+</html>

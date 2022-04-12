@@ -23,6 +23,11 @@ import firebase from '../db/firebase';
 import Modal from '@mui/material/Modal';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import { Button } from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
+import PageviewIcon from '@mui/icons-material/Pageview';
+import { useCounter } from "../Context/Context";
+
+import { Empty } from 'antd';
 
 
 const style = {
@@ -42,6 +47,8 @@ const style = {
 
 export default function Links({AllTodo , Name}) {
     console.log(AllTodo);
+    const { uid} =useCounter()
+
     const [isform, setisform] = useState(false)
     const [loading, setLoading] = useState(false);
     const [title, settitle] = useState('')
@@ -57,7 +64,7 @@ export default function Links({AllTodo , Name}) {
 
      async  function Delete(id){
         
-        const todoref = firebase.database().ref(`Linksdata/Akash/All_Coll/${Name}/Todos`).child(id);
+        const todoref = firebase.database().ref(`Linksdata/${uid}/All_Coll/${Name}/Todos`).child(id);
         todoref.remove()
         toast("item is Removed")
        }
@@ -71,7 +78,7 @@ export default function Links({AllTodo , Name}) {
         }
     
            
-            const main = await firebase.database().ref(`Linksdata/Akash/All_Coll/${Name}/Todos`);
+            const main = await firebase.database().ref(`Linksdata/${uid}/All_Coll/${Name}/Todos`);
            
             main.push(data)
       
@@ -84,7 +91,7 @@ export default function Links({AllTodo , Name}) {
     
 
   return (
-    <>
+    <div  className='All_block' >
 
     <Modal
         open={open}
@@ -132,7 +139,17 @@ export default function Links({AllTodo , Name}) {
 
 
 
-<div style={{ "textAlign":"end"}}>
+      <div className='card_title'>
+<h2 style={{ paddingLeft:10 }}> All TO-DO's</h2>
+<TextField
+  InputProps={{
+    startAdornment: (
+      <InputAdornment position="start">
+        <SearchIcon />
+      </InputAdornment>
+    ),
+  }}
+   placeholder='Search' variant='standard' />
 
 <Tooltip title="Add New Link">
       <Fab  className='Addme' variant="extended" onClick={()=>  setOpen(true)}  size="small" color="primary" aria-label="add">
@@ -155,10 +172,8 @@ export default function Links({AllTodo , Name}) {
       checked={data.Complete}
       onChange={(e) => 
         {
-         setChecked(e.target.checked);
-        // alert(id)
-        
-            const todoref = firebase.database().ref(`Linksdata/Akash/All_Coll/${Name}/Todos/`).child(data.id);
+         setChecked(e.target.checked);        
+            const todoref = firebase.database().ref(`Linksdata/${uid}/All_Coll/${Name}/Todos/`).child(data.id);
             todoref.update({
                 "Complete":!data.Complete,
             })
@@ -179,8 +194,7 @@ export default function Links({AllTodo , Name}) {
         </div>
     ) : (
       <div className='nodata'>
-
-      <img  src='https://image.freepik.com/free-vector/no-data-concept-illustration_114360-536.jpg' />
+<Empty  />
     </div>
     ) }
 
@@ -206,6 +220,6 @@ export default function Links({AllTodo , Name}) {
         />
         {/* Same as */}
 <ToastContainer />
-    </>
+    </div>
   )
 }

@@ -1,9 +1,10 @@
 import Head from 'next/head'
 import { styled } from '@mui/material/styles';
 import SendIcon from '@mui/icons-material/Send';
+const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 import IconButton from '@mui/material/IconButton';
-import Button from '@mui/material/Button';
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
+import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import Fingerprint from '@mui/icons-material/Fingerprint';
@@ -35,7 +36,6 @@ import Favorite from '@mui/icons-material/Favorite';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 
-const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
 
 // Rating

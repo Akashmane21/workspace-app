@@ -1,0 +1,91 @@
+
+.expenseblock{
+    
+}
+.expense
+{
+display: flex;
+justify-content: space-between;
+    background-color: rgba(6, 201, 255, 0.201);
+        background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 2px 2px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    .spend{
+        width: 300px;
+    }
+    .icon{
+        padding-right: 20%;
+    }
+}
+
+.expense_title
+{
+    display: flex;
+    
+    padding-left: 10px;
+    border-left: 5px solid rgb(136, 219, 234);
+    color: #47526b;
+    h1{
+        font-weight: 700;
+
+        font-family:Arial, Helvetica, sans-serif;
+        font-size: 40px;
+        margin: 0px;
+    }
+    h2{
+        margin: 0px;
+    }
+}
+
+
+.forms{
+    padding: 10px;
+    margin-top: 30px;
+    .input{
+        transition: 250ms ease-in-out;
+        outline: 0px;
+        border: 2px solid rgb(255, 255, 255);
+        box-shadow: -5px -10px 1px rgb(206, 205, 205);
+        padding: 10px;
+        font-size: 20px;
+        font-family: serif;
+
+
+        background: rgba( 255, 255, 255, 0.25 );
+        box-shadow: 0 2px 2px 0 rgba( 31, 38, 135, 0.37 );
+        backdrop-filter: blur( 4px );
+        -webkit-backdrop-filter: blur( 4px );
+        border-radius: 10px;
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
+        // border-radius: 20px;
+        &:focus{
+            box-shadow: 0 4px 2px 0 rgba( 31, 38, 135, 0.37 );
+
+           
+        }
+    }
+}
+
+.flex
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap-reverse;
+    padding: 10px;
+    justify-content: space-between;
+
+  
+}
+.date{
+    // width: 120px;
+    
+    background: rgba(255, 255, 255, 0);
+    box-shadow: none;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+.dateblock{
+  
+
+
+}

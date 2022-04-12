@@ -24,6 +24,8 @@ import firebase from '../db/firebase';
 import TextareaAutosize from '@mui/material/TextareaAutosize';
 import Modal from '@mui/material/Modal';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
+import SearchIcon from '@mui/icons-material/Search';
+import { Empty } from 'antd';
 
 
 const style = {
@@ -38,11 +40,14 @@ const style = {
   p: 4,
   borderRadius: 2,
 };
+import { useCounter } from "../Context/Context";
 
 
 
 export default function Notes({AllNotes , Name}) {
     console.log(Name);
+    const { uid} =useCounter()
+
     const [isform, setisform] = useState(false)
     const [loading, setLoading] = useState(false);
     const [title, settitle] = useState('')
@@ -59,7 +64,7 @@ export default function Notes({AllNotes , Name}) {
 
      async  function Delete(id){
         
-        const todoref = firebase.database().ref(`Linksdata/Akash/All_Coll/${Name}/Notes`).child(id);
+        const todoref = firebase.database().ref(`Linksdata/${uid}/All_Coll/${Name}/Notes`).child(id);
         todoref.remove()
         toast("item is Removed")
        }
@@ -73,7 +78,7 @@ export default function Notes({AllNotes , Name}) {
         }
     
            
-            const main = await firebase.database().ref(`Linksdata/Akash/All_Coll/${Name}/Notes`);
+            const main = await firebase.database().ref(`Linksdata/${uid}/All_Coll/${Name}/Notes`);
            
             main.push(data)
       
@@ -100,7 +105,7 @@ export default function Notes({AllNotes , Name}) {
 
 
   return (
-    <div >
+    <div className='All_block' >
 
 <Modal
         open={open}
@@ -162,9 +167,17 @@ export default function Notes({AllNotes , Name}) {
         </Box>
       </Modal>
   
-
-
-<div style={{ "textAlign":"end"}}>
+      <div className='card_title'>
+<h2 style={{ paddingLeft:10 }}> All Note's</h2>
+<TextField
+  InputProps={{
+    startAdornment: (
+      <InputAdornment position="start">
+        <SearchIcon />
+      </InputAdornment>
+    ),
+  }}
+   placeholder='Search' variant='standard' />
 
 <Tooltip title="Add New Link">
       <Fab className='Addme' variant="extended" onClick={()=>  setOpen(true)}  size="small" color="primary" aria-label="add">
@@ -204,8 +217,8 @@ export default function Notes({AllNotes , Name}) {
 
      
           <div className='nodata'>
+<Empty  />
 
-<img  src='https://image.freepik.com/free-vector/no-data-concept-illustration_114360-536.jpg' />
           </div>
         
        

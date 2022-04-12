@@ -117,25 +117,15 @@ export default function Nav() {
   return (
 
     <nav>
-    <div className={styles.header} style={{backgroundColor:isTheme ? "#011229c9" : "white"}}>
+    {/* <div className={styles.header} >
     <div style={{display:"flex" }}>
     <IconButton onClick={()=> setisMenu(!isMenu)} color="primary" aria-label="add to shopping cart">
                 <WidgetsIcon />
             </IconButton>
       <h1 style={{color:isTheme ? "white" : "black" , paddingTop:"10px"}}>WorkSpace</h1>
       </div>
-      <div>
-      <Chip style={{color:isTheme ? "white" : "gray" , position:"relative" , left:"10px"}} label="Akash Mane" avatar={<Avatar src="https://firebasestorage.googleapis.com/v0/b/reactcrud-7b0fc.appspot.com/o/Image%2Fy.png?alt=media&token=bd47121d-8a24-4b00-99dd-ed8e36ced485" />} />
-     
-       {/* <FormControlLabel
-               onChange={ChangeTheme}
-               style={{position:"relative" , left:"30px"}}
-
-        control={<IOSSwitch sx={{ m: 1 }} defaultChecked />}
-        label=""
-      /> */}
-      </div>
-    </div>
+      
+    </div> */}
   </nav>
   );
 }
