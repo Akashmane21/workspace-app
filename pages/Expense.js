@@ -77,7 +77,7 @@ function GFG_Fun() {
           <div className={Estyles.icon}>
               <img
                 src="https://cdn-icons-png.flaticon.com/512/7014/7014960.png"
-                alt=""
+                alt="Coin logo"
                 height="80px"
               />
             </div>
@@ -89,12 +89,12 @@ function GFG_Fun() {
          
             <div className={Estyles.spend}>
               <h2>
-                You've spent{" "}
+                You've spent
                 <img
                   src="/rupee.svg"
-                  alt=""
+                  alt="Rupee Logo"
                   style={{ position: "relative", top: 5 }}
-                />{" "}
+                />
                 0,00 in a total of 0 expenses
               </h2>
             </div>

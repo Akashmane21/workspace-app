@@ -33,7 +33,7 @@ function Login() {
 
   return (
     <>
-      <div class="login">
+      <div className="login">
         <form>
           <input
             type="email"

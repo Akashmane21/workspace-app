@@ -69,7 +69,9 @@ export default function Auth() {
         router.push("/");
         setuid(User.uid);
       }
+
     });
+    
   }, []);
 
   const newRegister = () => {
@@ -165,7 +167,7 @@ export default function Auth() {
 
                   <div className={styles.joinbtn}>
                     <Button
-                      variant="outlined"
+                      variant="text"
                       onClick={() => setisLogin(false)}
                     >
                       Sine Up
@@ -239,7 +241,7 @@ export default function Auth() {
                 </div>
 
                 <div className={styles.joinbtn}>
-                  <Button variant="outlined" onClick={() => setisLogin(true)}>
+                  <Button variant="text" onClick={() => setisLogin(true)}>
                     Sign In
                   </Button>
                   <Button variant="contained" type="submit">
