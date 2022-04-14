@@ -30,7 +30,7 @@ const Post = () => {
     console.log("pid");
   }
 
-  useEffect(async () => {
+  useEffect( () => {
 
 
  
