@@ -134,7 +134,18 @@ Button{
 @media screen and (max-width: 480px) {
   .block{
     .left{
-      display: none;
+      // display: none;
+      width: 30%;
+      overflow: hidden;
+      padding: 0px;
+      .LeftMenu{
+        Button{
+          padding-left: 0px;
+          span{
+            margin-right: 20px;
+          }
+        }
+      }
     }
    
   }
