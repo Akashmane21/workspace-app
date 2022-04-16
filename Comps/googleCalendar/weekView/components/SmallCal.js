@@ -109,6 +109,7 @@ export default function MyApp({isDash}) {
       {Allrems ? Allrems.map((data , key)=>
         <div className="rems_card" key={key}>
           <h5>{data.Timestamp}</h5>
+          <hr />
           <h3>{data.Title}</h3>
           <h4>{data.Des}</h4>
         </div>

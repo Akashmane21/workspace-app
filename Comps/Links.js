@@ -157,7 +157,7 @@ export default function Links({AllLinks , Name}) {
 
       <div className='card_title'>
 <h2 style={{ paddingLeft:10 }}> All Link's</h2>
-<TextField
+{/* <TextField
   InputProps={{
     startAdornment: (
       <InputAdornment position="start">
@@ -165,7 +165,7 @@ export default function Links({AllLinks , Name}) {
       </InputAdornment>
     ),
   }}
-   placeholder='Search' variant='standard' />
+   placeholder='Search' variant='standard' /> */}
 
 <Tooltip title="Add New Link">
       <Fab className='Addme' variant="extended" onClick={()=>  setOpen(true)}  size="small" color="primary" aria-label="add">
@@ -203,6 +203,7 @@ export default function Links({AllLinks , Name}) {
             </IconButton>
             </Tooltip>
          </div>
+
 
         <h2>{data.Link}</h2>
         <h1 >{data.Name}</h1>

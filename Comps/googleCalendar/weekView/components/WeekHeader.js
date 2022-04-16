@@ -25,7 +25,7 @@ export default  function WeekHeader (props) {
           }
         >
           <p style={weekDayName}>{day.weekDayName}</p>
-          <p style={weekDates}>{day.date}</p>
+          <p className='weekDates'>{day.date}</p>
         </Col>
       ))}
     </Row>

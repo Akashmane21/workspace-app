@@ -23,25 +23,27 @@ export default function WeekToolbar (props) {
 
     <div className="cal_header">
       <div className="title">
-      <img src="https://cdn-icons-png.flaticon.com/512/2370/2370277.png" alt="" height="50px" />
+      <img src="https://cdn-icons-png.flaticon.com/512/2370/2370277.png" alt="" height="30px" />
          Calendar
       </div>
       <div className="weekbtns">
           <div className="flex">
 
         {/* <Tooltip placement="topLeft" title={moment ().format ('dddd, MMM D')}> */}
-          <Button onClick={props.goToToday} variant='outlined' className='btn' style={{color:"black" }}>Today</Button> <br /> <br />
+          <Button onClick={props.goToToday} variant='contained' className='btn' style={{color:"black" }}>Today</Button> <br /> <br />
         {/* </Tooltip> */}
 
-        <Tooltip placement="left" title="Go to previous Week">
-          <IconButton onClick={props.goToPreviousWeek}  aria-label="fingerprint" className='btn'>
-                <ArrowBackIosIcon className="svg_icons" />
-            </IconButton>
-        </Tooltip>
+        
 
         <Tooltip placement="topLeft" title="Go to Next Week">
             <IconButton onClick={props.goToNextWeek}  aria-label="fingerprint" className='btn'>
                 <ArrowForwardIosIcon className="svg_icons" />
+            </IconButton>
+        </Tooltip>
+
+        <Tooltip placement="topLeft" title="Go to previous Week">
+          <IconButton onClick={props.goToPreviousWeek}  aria-label="fingerprint" className='btn'>
+                <ArrowBackIosIcon className="svg_icons" />
             </IconButton>
         </Tooltip>
         <h1> {formattedDate}</h1>
