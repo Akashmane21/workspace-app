@@ -16,10 +16,23 @@ import ArticleIcon from '@mui/icons-material/Article';
 import { Button } from "@mui/material";
 import FeedIcon from '@mui/icons-material/Feed';
 import AddIcon from '@mui/icons-material/Add';
+import Link from "next/link";
+
+// export async function getStaticProps() {
+//   const data =uid
+
+//   return {
+//     props: data
+//   }
+// }
+
 
 export default function Home() {
   const router = useRouter();
   const{ uid } =useCounter()
+useEffect(() => {
+console.log("Hello");
+}, [])
 
 
   let guid = () => {
@@ -74,15 +87,16 @@ main.set(Data)
 
 
           <div className="icon">
-            {/* <FeedIcon style={{ fontSize:34 , color:"gray" }} /> */}
             <img src="https://persistentpro.e-box.co.in/images/icon/knowledge-based-problems-solved.svg" alt="logo" height="50px" />
             <h2>Docs</h2>
           </div>
-<div className="leftbtns">
+
+        <div className="leftbtns">
 
           <input type="text" placeholder="Search Doc" />
           <Button onClick={Create} startIcon={<AddIcon />} style={{ backgroundColor:"#7fd7f835" }} >New</Button>
-</div>
+
+        </div>
 
         </div>
         <hr />

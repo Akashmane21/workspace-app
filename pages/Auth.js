@@ -125,11 +125,11 @@ export default function Auth() {
 
   return (
     <div className={styles.Auth}>
-      {/* <div className={styles.poster}>
-        <img src="/login.svg" alt="" />
-        </div> */}
+      
 
       <div className={styles.form}>
+
+        
         {isLogin ? (
           <div>
             <h2> Log in </h2>

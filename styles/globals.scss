@@ -114,7 +114,7 @@ Button{
 }
 
 .lefticon{
-  // margin-right: 30px;
+  margin-right: 30px;
 }
 .calen{
   position: relative;
@@ -1094,9 +1094,11 @@ blockquote{
  text-transform: uppercase;
 }
 
+
 .docheader{
   padding: 10px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 
   .leftbtns{
@@ -1366,9 +1368,16 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
   .weekDates{
     font-size: 20px;
   }
+  .LeftMenu{
+    width: 60px;
+    padding: 0px;
+  }
   .block{
     .left{
-      display: none;
+      // display: none;
+      width: 60px;
+      padding: 0px;
+
      
     }
    

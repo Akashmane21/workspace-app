@@ -133,7 +133,7 @@ const [title, settitle] = useState(`Hello ,  ${Userdata.displayName} (${Userdata
           <NotificationsNoneIcon style={{color:"orangered" , position:"relative" , left:10 ,marginRight:10  , borderRadius:20 ,padding:3 , fontSize:30  }} />  
         </Badge>
         </IconButton> */}
-        {Userdata.displayName ? Userdata.displayName : Userdata.email }
+        {/* {Userdata.displayName ? Userdata.displayName : Userdata.email } */}
 <Popconfirm
 title={Userdata.email} 
 onConfirm={logout}

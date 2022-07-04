@@ -35,7 +35,6 @@ import Header from '../../Comps/Header';
 const Post = () => {
   const router = useRouter()
   const {uid}=useCounter()
- 
 
   const { Did } = router.query
   if(Did!=undefined){
@@ -285,3 +284,4 @@ async function setName(){
 }
 
 export default Post
+

@@ -2,13 +2,14 @@ import { Table, Tag, Space } from 'antd';
 import React , { useState , useEffect} from 'react'
 import 'antd/dist/antd.css'
 import ArticleIcon from '@mui/icons-material/Article';
-import { Button } from '@mui/material';
+import { Button, IconButton } from '@mui/material';
 import firebase from '../db/firebase'
 import { useRouter } from "next/router";
 import moment from 'moment';
 import { Popconfirm, message } from 'antd';
-
+import CachedIcon from '@mui/icons-material/Cached';
 import { useCounter } from "../Context/Context";
+import Link from 'next/link';
 
 export default function DocTable() {
     const [data, setdata] = useState([])
@@ -94,9 +95,30 @@ cancelText="No"
         message.error('cancelled');
       }
       
+      function Refresh(){
+        const fire= firebase.database().ref(`Linksdata/${uid}/Docs`);
+        const base = fire.on("value", (snapshot) => {
+        const todoList = [];
+        const todos = snapshot.val();
+        for (let id in todos) {
+        todoList.push({ id, ...todos[id] });
+        }
+        console.log(todoList);
+        setdata(todoList)
+
+   });
+      }
 
   return (
+    <>
+    
+<IconButton style={{ display:"flex" , marginLeft:"auto" }}>
+<CachedIcon />
+</IconButton>
+{/* <Button style={{ justifyContent:"flex-end" }} onClick={Refresh} startIcon={ }>Refresh</Button> */}
+
     <Table columns={columns} dataSource={data} />
+    </>
   )
 }
 
