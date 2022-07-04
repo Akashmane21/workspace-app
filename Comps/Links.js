@@ -170,7 +170,7 @@ export default function Links({AllLinks , Name}) {
 <Tooltip title="Add New Link">
       <Fab className='Addme' variant="extended" onClick={()=>  setOpen(true)}  size="small" color="primary" aria-label="add">
         <AddIcon sx={{ fontSize:20 }} />
-       Add Link
+     
       </Fab>
       </Tooltip>
 </div>

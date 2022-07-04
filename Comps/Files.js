@@ -214,7 +214,7 @@ const [File, setFile] = useState('')
   
     var uploadTask = firebase
       .storage()
-      .ref("Image/" + x.files[0].name )
+      .ref("Workspace/" + x.files[0].name )
       .put(x.files[0]);
 
     uploadTask.on(
@@ -229,6 +229,10 @@ const [File, setFile] = useState('')
 
       function (err) {
         alert("Error to Saving the Image");
+        console.log(err)
+        setLoading(false);
+        setProgress(0)
+      
       },
 
       // ------------Submit image into Database---------------
@@ -365,7 +369,7 @@ const [File, setFile] = useState('')
 <Tooltip title="Add New Link">
       <Fab className='Addme' variant="extended" onClick={()=>  setOpen(true)}  size="small" color="primary" aria-label="add">
         <AddIcon sx={{fontSize:20}}  />
-        Add File
+        
       </Fab>
       </Tooltip>
 </div>
